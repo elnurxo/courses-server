@@ -4,9 +4,9 @@ const path = require("path");
 require("dotenv").config();
 const { v4: uuidv4 } = require("uuid");
 const cors = require("cors");
-const xss = require('xss-clean');
+// const xss = require('xss-clean');
 const { rateLimit } = require("express-rate-limit");
-const helmet = require('helmet');
+const helmet = require("helmet");
 const PORT = process.env.PORT || 3000;
 const courses = require("./data/courses.js");
 
@@ -28,7 +28,7 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 app.use(helmet());
-app.use(xss());
+// app.use(xss());
 
 //view endpoint
 app.get("/", (_, res) => {
